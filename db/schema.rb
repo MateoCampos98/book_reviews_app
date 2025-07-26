@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_07_26_023408) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_26_024523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,22 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_26_023408) do
     t.index ["title"], name: "index_books_on_title"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
+    t.integer "rating", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["created_at"], name: "index_reviews_on_created_at"
+    t.index ["rating"], name: "index_reviews_on_rating"
+    t.index ["user_id", "book_id"], name: "index_reviews_on_user_id_and_book_id", unique: true
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.check_constraint "length(content) <= 1000", name: "content_length"
+    t.check_constraint "rating >= 1 AND rating <= 5", name: "rating_range"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "user_name", null: false
@@ -37,4 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_07_26_023408) do
     t.index ["user_name"], name: "index_users_on_user_name", unique: true
   end
 
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end
