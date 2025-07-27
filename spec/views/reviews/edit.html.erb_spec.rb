@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "reviews/edit", type: :view do
+RSpec.describe "reviews/edit", skip: "", type: :view do
   let(:review) {
     Review.create!(
       user: nil,

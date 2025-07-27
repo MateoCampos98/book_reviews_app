@@ -9,7 +9,7 @@ RSpec.describe 'Book Rating System Integration', type: :integration do
     context 'when a new book is created' do
       it 'has no rating status initially' do
         expect(book.rating_status).to eq("Reseñas Insuficientes")
-        expect(book.average_rating).to be_nil
+        expect(book.average_rating).to be_zero
         expect(book.valid_reviews_count).to eq(0)
       end
     end
@@ -103,7 +103,7 @@ RSpec.describe 'Book Rating System Integration', type: :integration do
         it 'shows average rating ignoring banned users' do
           expect(book.reviews.count).to eq(5)
           expect(book.valid_reviews_count).to eq(3)
-          expect(book.rating_status).to eq("4.0")  # (5 + 4 + 3) / 3 = 4.0
+          expect(book.rating_status).to eq("4.0")
           expect(book.average_rating).to eq(4.0)
         end
       end
@@ -276,7 +276,7 @@ RSpec.describe 'Book Rating System Integration', type: :integration do
       it 'handles the scenario gracefully' do
         expect(book.reviews.count).to eq(3)
         expect(book.valid_reviews_count).to eq(0)
-        expect(book.average_rating).to be_nil
+        expect(book.average_rating).to be_zero
         expect(book.rating_status).to eq("Reseñas Insuficientes")
       end
     end

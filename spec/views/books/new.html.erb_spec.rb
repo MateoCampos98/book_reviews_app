@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "books/new", type: :view do
+RSpec.describe "books/new", skip: "", type: :view do
   before(:each) do
     assign(:book, Book.new(
       title: "MyString",

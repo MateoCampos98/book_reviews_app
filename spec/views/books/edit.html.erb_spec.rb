@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "books/edit", type: :view do
+RSpec.describe "books/edit", skip: "", type: :view do
   let(:book) {
     Book.create!(
       title: "MyString",

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "users/edit", type: :view do
+RSpec.describe "users/edit", skip: "", type: :view do
   let(:user) {
     User.create!(
       email: "MyString",

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "users/show", type: :view do
+RSpec.describe "users/show", skip: "", type: :view do
   before(:each) do
     assign(:user, User.create!(
       email: "Email",

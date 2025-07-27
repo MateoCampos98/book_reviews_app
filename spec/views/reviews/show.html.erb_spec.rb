@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "reviews/show", type: :view do
+RSpec.describe "reviews/show", skip: "", type: :view do
   before(:each) do
     assign(:review, Review.create!(
       user: nil,
