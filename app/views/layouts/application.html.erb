@@ -6,9 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=IBM+Plex+Sans:wght@300;400;500;700&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
+
+  <nav class="menu">
+  <div class="nav-content">
+    <div class="brand-name">Reseñas de libros</div>
+    <ul>
+      <li><a href="#">Usuarios</a></li>
+      <li><a href="#">Libros</a></li>
+      <li><a href="#">Reseñas</a></li>
+    </ul>
+  </div>
+  </nav>
 
   <body>
     <%= yield %>

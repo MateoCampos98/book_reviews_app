@@ -12,6 +12,8 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem "view_component"
+gem 'sassc-rails'
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]

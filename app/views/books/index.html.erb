@@ -1,14 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<h1 class="title">Libros</h1>
 
-<div class="book-list">
+<div class="book-card">
   <% @books.each do |book| %>
     <%= render(BookCardComponent.new(book: book)) %>
     <p>
-      <%= link_to "Show this book", book %>
+      <%= link_to "Muestra este libro", book %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New book", new_book_path %>
+<%= link_to "Nueva reseña", new_book_path %>
+<%= render 'new_review' %>
