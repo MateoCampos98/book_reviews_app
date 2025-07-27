@@ -1,0 +1,13 @@
+<%= form_with(model: [@book, @review], data: { turbo_frame: dom_id(@book, :review_form) }) do |f| %>
+  <div class="field">
+    <%= f.label :rating, "Calificación" %>
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :content, "Comentario" %>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar reseña" %>
+  </div>
+<% end %>

@@ -5,11 +5,32 @@
 <div class="book-card">
   <% @books.each do |book| %>
     <%= render(BookCardComponent.new(book: book)) %>
-    <p>
-      <%= link_to "Muestra este libro", book %>
-    </p>
+    <button onclick="toggleReviewForm('<%= dom_id(book) %>')" class="btn">
+      Agregar reseña
+    </button>
+    <%= turbo_frame_tag dom_id(book, :review_form) do %>
+      <div id="review-form-<%= dom_id(book) %>" style="display: none;" class="review-form-container">
+        <%= render(ReviewFormComponent.new(review: Review.new, book: book)) %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
 <%= link_to "Nueva reseña", new_book_path %>
-<%= render 'new_review' %>
+
+<script>
+function toggleReviewForm(bookId) {
+  const form = document.getElementById(`review-form-${bookId}`);
+  const button = event.target;
+  
+  if (form.style.display === 'none') {
+    form.style.display = 'block';
+    button.textContent = 'Cancelar reseña';
+    button.classList.add('btn-cancel');
+  } else {
+    form.style.display = 'none';
+    button.textContent = 'Agregar reseña';
+    button.classList.remove('btn-cancel');
+  }
+}
+</script>
