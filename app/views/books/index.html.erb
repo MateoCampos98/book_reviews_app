@@ -2,9 +2,9 @@
 
 <h1>Books</h1>
 
-<div id="books">
+<div class="book-list">
   <% @books.each do |book| %>
-    <%= render book %>
+    <%= render(BookCardComponent.new(book: book)) %>
     <p>
       <%= link_to "Show this book", book %>
     </p>
