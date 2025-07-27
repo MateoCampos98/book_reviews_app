@@ -21,8 +21,8 @@ RSpec.describe Book, type: :model do
     let(:banned_user) { create(:user, :banned) }
 
     context 'when book has no reviews' do
-      it 'returns nil' do
-        expect(book.average_rating).to be_nil
+      it 'returns zero' do
+        expect(book.average_rating).to be_zero
       end
     end
 
@@ -60,8 +60,8 @@ RSpec.describe Book, type: :model do
         create(:review, book: book, user: banned_user, rating: 3)
       end
 
-      it 'returns nil when all reviews are from banned users' do
-        expect(book.average_rating).to be_nil
+      it 'returns zero when all reviews are from banned users' do
+        expect(book.average_rating).to be_zero
       end
     end
 
@@ -99,7 +99,7 @@ RSpec.describe Book, type: :model do
       before do
         create(:review, book: book, user: active_users[0], rating: 4)
         create(:review, book: book, user: active_users[1], rating: 5)
-        create(:review, book: book, user: banned_user, rating: 3) # No cuenta
+        create(:review, book: book, user: banned_user, rating: 3)
       end
 
       it 'returns "Reseñas Insuficientes" because banned reviews do not count' do

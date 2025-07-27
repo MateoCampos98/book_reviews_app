@@ -11,7 +11,7 @@ class Book < ApplicationRecord
                           .where(users: { status: 'active' })
                           .pluck(:rating)
     
-    return nil if valid_ratings.empty?
+    return 0 if valid_ratings.empty?
     
     average = valid_ratings.sum.to_f / valid_ratings.size
     average.round(1)
