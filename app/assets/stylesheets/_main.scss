@@ -105,3 +105,61 @@ h1.title {
   .book-card > div + p a:hover {
     background-color: #0056b3; /* Darker blue on hover */
   }
+
+.btn {
+  border-radius: 0.5em;
+  display: block;
+  margin: 25px auto 10px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #ffffff; /* White background for the card */
+  border: 1px solid #e0e0e0; /* Subtle border for definition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a lifted effect */
+}
+
+.review-form-container {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 15px auto; /* Cambiado para centrar horizontalmente */
+  position: relative;
+  transition: all 0.3s ease;
+  animation: slideDown 0.3s ease;
+  
+  /* Nuevas propiedades para controlar el ancho */
+  max-width: 500px; /* Ancho máximo */
+  width: 90%; /* Ancho relativo para responsive */
+}
+
+.review-form-container .field {
+  margin-bottom: 15px;
+}
+
+.review-form-container label {
+  color: #34495e;
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  font-size: 0.95em;
+}
+
+.review-form-container input,
+.review-form-container select,
+.review-form-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.review-form-container .btn {
+  margin: 0;
+  flex-shrink: 0;
+}

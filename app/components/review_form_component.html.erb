@@ -1,7 +1,7 @@
 <%= form_with(model: [@book, @review], data: { turbo_frame: dom_id(@book, :review_form) }) do |f| %>
   <div class="field">
     <%= f.label :rating, "Calificación" %>
-    <%= f.number_field :rating %>
+    <%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :content, "Comentario" %>
