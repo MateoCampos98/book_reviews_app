@@ -1,6 +1,14 @@
-<div>
-  <h2><%= @book.title %></h2>
-  <p><%= @book.author %></p>
-  <p><%= @book.description %></p>
-  <p><%= @book.rating_status%></p>
+<div data-controller="book-card" class="book-card"> 
+  <div>
+    <h2><%= @book.title %></h2>
+    <p>Por: <%= @book.author %></p>
+    <p><%= @book.description %></p>
+  </div>
+  
+  <div class="rating-section">
+    <label>Calificación:</label>
+    <span data-book-card-target="rating"><%= @book.rating_status %></span>
+    <div data-book-card-target="ratingDisplay" class="rating-display">
+    </div>
+  </div>
 </div>
