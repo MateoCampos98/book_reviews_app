@@ -4,6 +4,7 @@ FactoryBot.define do
     association :book
     rating { rand(1..5) }
     content { Faker::Lorem.paragraph(sentence_count: rand(2..5)) }
+    approved {false}
 
     trait :excellent do
       rating { 5 }

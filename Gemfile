@@ -23,6 +23,7 @@ group :development, :test do
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'byebug'
+  gem 'letter_opener'
 end
 
 group :development do

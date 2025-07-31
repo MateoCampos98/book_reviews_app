@@ -1,0 +1,9 @@
+<h1>Hola <%= @user.user_name %>,</h1>
+
+<p>Estas son tus recomendaciones semanales:</p>
+
+<ul>
+  <% @recommended_books.each do |book| %>
+    <li><%= book.title %></li>
+  <% end %>
+</ul>

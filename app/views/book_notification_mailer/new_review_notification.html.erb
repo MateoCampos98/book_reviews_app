@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .container { max-width: 600px; margin: 0 auto; font-family: Arial, sans-serif; }
+      .book-card { border: 1px solid #ddd; padding: 20px; margin: 20px 0; }
+      .rating { color: #ffa500; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>¡Nueva reseña disponible!</h1>
+      
+      <p>Hola <%= @user.user_name %>,</p>
+      
+      <p>Se ha publicado una nueva reseña del libro que sigues:</p>
+      
+      <div class="book-card">
+        <h2><%= @book.title %></h2>
+        <p><strong>Autor:</strong> <%= @book.author %></p>
+        <p><strong>Calificación:</strong> 
+          <span class="rating"><%= "★" * @review.rating %></span>
+        </p>
+        <p><%= truncate(@review.content, length: 150) %></p>
+      </div>
+      
+      <p>
+        <%= link_to "Ver reseña completa", @book_url, 
+            style: "background: #007cba; color: white; padding: 10px 20px; text-decoration: none;" %>
+      </p>
+      
+      <p>¡Gracias por usar Book Reviews!</p>
+    </div>
+  </body>
+</html>
